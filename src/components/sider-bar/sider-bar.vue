@@ -29,7 +29,7 @@
           <template slot="title">
             <span><i :class="item.entity.icon"></i>{{item.entity.alias}}</span>
           </template>
-          <el-menu-item  v-for="(sub, idx) in item.child" :key="idx" :index="sub.entity.link">{{sub.entity.alias}}</el-menu-item>
+          <el-menu-item v-for="(sub, idx) in item.child" :key="idx" :index="sub.entity.link">{{sub.entity.alias}}</el-menu-item>
         </el-submenu> 
       </el-menu>
     </div>
@@ -45,8 +45,10 @@ export default {
     }
   },
 
-  created() {
-    
+  created() {  
+    nav.forEach(element => {
+      element.child = element.child.filter(item => item['entity'].group == this.userInfo['groupId'])
+    });
   },
   
   methods: {
@@ -54,6 +56,7 @@ export default {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
+
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     }

@@ -37,7 +37,8 @@ const userRated = () => import("@/pages/user-rated/user-rated")
 const removeBind = () => import("@/pages/remove-bind/remove-bind")
 const taskTable = () => import("@/pages/task-table/task-table")
 const bindAccount = () => import("@/pages/bind-account/bind-account")
-
+const bindShop = () => import("@/pages/bind-shop/bind-shop")
+const blackList = () => import("@/pages/black-list/black-list")
 /**
  * 导出路由
  */
@@ -277,7 +278,25 @@ export default new Router({
               meta: {
                 requireAuth: true
               },
-            }    
+            },
+            //绑定买号
+            {
+              path: '/blackList',
+              name: 'blackList',
+              component: blackList,
+              meta: {
+                requireAuth: true
+              },
+            },
+            //绑定买号
+            {
+              path: '/bindShop',
+              name: 'bindShop',
+              component: bindShop,
+              meta: {
+                requireAuth: true
+              },
+            }            
           ]
         }
       ]

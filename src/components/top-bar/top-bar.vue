@@ -23,6 +23,10 @@ export default {
     return {
       userInfo: this.Global.getCookieUserInfo('memberInfo')
     }
+  },
+
+  created() {
+   
   }
 }
 </script>

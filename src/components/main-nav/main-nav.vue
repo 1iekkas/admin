@@ -1,5 +1,5 @@
 <template>
-  <div class="main-nav">
+  <div class="main-nav" :style="{'background': userType ? '#ff4401' : '#1989fa'}">
     <div class="rows">
       <img src="http://demo2.hsk.cc/templates/main/images/logo_buyer.png" alt="">
     </div>
@@ -52,7 +52,8 @@ export default {
           {name: '账户充值', link: '/userInfo?tab=0'},
           {name: '余额提现', link: '/userInfo?tab=0'}
         ], style: '#0082f6'}
-      ]
+      ],
+      userType: this.Global.getCookieUserInfo('memberInfo')['groupId']
     }
   },
   

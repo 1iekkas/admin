@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :class="[ userType == 1 ? '' : 'base-blue']">
     <top-bar></top-bar>
     <main-nav></main-nav>
     <router-view></router-view>
@@ -12,6 +12,12 @@ import TopBar from "@components/top-bar/top-bar"
 import MainNav from "@components/main-nav/main-nav"
 import Foot from "@components/footer/footer"
 export default {
+  data() {
+    return {
+      userType: this.Global.getCookieUserInfo('memberInfo')['groupId']
+    }
+  },
+
   components: {
     TopBar,
     MainNav,

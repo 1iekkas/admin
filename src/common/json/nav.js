@@ -3,7 +3,8 @@ const nav = [
     //一级
     entity: {
       id: 0,
-      name: "aa",
+      name: "aa", 
+      group: 1,
       icon: "el-icon-document",
       alias: "任务管理"
     },
@@ -11,7 +12,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "任务大厅",
           link: ''
@@ -20,7 +22,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "已参与任务"
         }
@@ -28,7 +31,38 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 2,
+          icon: "el-icon-message",
+          alias: "发布任务",
+          link: ''
+        }
+      },
+      {
+        entity: {
+          id: 0,
+          name: "aa", 
+          group: 2,
+          icon: "el-icon-message",
+          alias: "已发布的任务",
+          link: ''
+        }
+      },
+      {
+        entity: {
+          id: 0,
+          name: "aa", 
+          group: 2,
+          icon: "el-icon-message",
+          alias: "模板管理",
+          link: ''
+        }
+      },
+      {
+        entity: {
+          id: 0,
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "绑定买号",
           link: '/bindAccount?tab=0'
@@ -37,7 +71,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "信用评价"
         },
@@ -45,7 +80,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "我要申诉",
           link: '/userAppeal?tab=0'
@@ -54,7 +90,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "解绑客户端",
           link: '/removeBind?tab=0'
@@ -74,7 +111,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "设置发货地址",
           link: '/address'
@@ -83,7 +121,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "订购空包快递",
           link: '/express?tab=0'
@@ -92,7 +131,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "我订购的单号",
           link: '/express?tab=1'
@@ -101,7 +141,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "双向指定单号",
           link: '/express?tab=2'
@@ -110,7 +151,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "我指定的单号",
           link: '/express?tab=3'
@@ -119,7 +161,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "领取快递单号",
           link: '/express?tab=4'
@@ -128,7 +171,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "我领取的单号",
           link: '/express?tab=5'
@@ -137,7 +181,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "购买淘宝小号",
           link: '/shopbuy?tab=0'
@@ -146,7 +191,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "购买软件卡密",
           link: '/softwarebuy?tab=0'
@@ -158,7 +204,8 @@ const nav = [
   {
     entity: {
       id: 0,
-      name: "aa",
+      name: "aa", 
+      group: 1,
       icon: "el-icon-money",
       alias: "财政中心"
     }, 
@@ -166,7 +213,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "账户充值",
           link: '/recharge'
@@ -175,7 +223,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "余额提现"
         },
@@ -183,7 +232,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "购买VIP卡",
           link: '/cardCenter'
@@ -192,7 +242,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "缴纳商保",
           link: '/userSafe'
@@ -201,7 +252,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "兑换资金",
           link: '/userExchange'
@@ -213,7 +265,8 @@ const nav = [
   {
     entity: {
       id: 0,
-      name: "aa",
+      name: "aa", 
+      group: 1,
       icon: "el-icon-files",
       alias: "财务明细"
     },
@@ -221,7 +274,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "资金明细",
           link: '/userFinancial?tab=1'
@@ -230,7 +284,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "佣金明细",
           link: '/userFinancial?tab=2'
@@ -239,7 +294,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "发布点明细",
           link: '/userFinancial?tab=4'
@@ -248,7 +304,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "有效期明细",
           link: '/userFinancial?tab=5'
@@ -257,7 +314,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "积分明细"
         }
@@ -265,7 +323,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "推广明细"
         }
@@ -273,7 +332,8 @@ const nav = [
       {
         entity: {
           id: 0,
-          name: "aa",
+          name: "aa", 
+          group: 1,
           icon: "el-icon-message",
           alias: "提现记录",
           link: '/userFinancial?tab=2'
