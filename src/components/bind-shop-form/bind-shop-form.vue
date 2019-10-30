@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import formTb from "@components/bind-account-form/form-tb"
+import formTb from "@components/bind-shop-form/form-tb"
 import formJd from "@components/bind-account-form/form-jd"
 import formAli from "@components/bind-account-form/form-ali"
 import formMgj from "@components/bind-account-form/form-mgj"
