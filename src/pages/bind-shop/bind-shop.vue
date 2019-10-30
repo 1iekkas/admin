@@ -1,15 +1,14 @@
 <template>
   <div class="form-section">
     <el-tabs v-model="activeName" @tab-click="handleClick" lazy="true">
-      <el-tab-pane label="绑定买号" name="0">
+      <el-tab-pane label="绑定店铺" name="0">
         <div class="bg-white" v-if="activeName == 0">
-          <bind-account-form name="绑定买号" :id="1"></bind-account-form>
+          <bind-shop-form name="绑定店铺" :id="1"></bind-shop-form>
         </div>
         <div class="account-tips">
           <p class="text-orange text-bold">注：绑定后账号名将无法修改，同时删除后也无法再重新添加！</p>
-          <p>姓别和年龄的作用：例如商家发布的活动要求只能21-25岁的女性用户接手，若你想参与此活动，你的买号必需符合这个条件才可以申请，所以请如实选择该买号的性别与年龄。</p>
-          <p>提示：您所在用户组每个试用区可以绑定<span>50</span>个买号，想要绑定更多，请升级为更高级别会员！</p>
-          <p>建议：请尽量绑定多个备用买号，申请试用时轮换使用，试用通过率会更高！</p>
+          <p>提示：您所在用户组每个试用区可以绑定<span>1</span>个店铺号，想要绑定更多，请升级为更高级别会员！</p>
+          <p>建议：发布活动时可以适当选择部分增值功能，可有效增加宝贝权重和提高搜索排名！</p>
         </div>
         <list v-if="activeName == 0"></list>
 
@@ -25,9 +24,9 @@
 </template>
 
 <script>
-import bindAccountForm from "@components/bind-account-form/bind-account-form"
+import bindShopForm from "@components/bind-shop-form/bind-shop-form"
 import accountList from "@components/bind-account-form/account-list"
-import list from "@components/bind-account-form/list"
+import list from "@components/bind-shop-form/list"
 export default {
   data() {
     return {
@@ -35,7 +34,7 @@ export default {
     }
   },
   components: {
-    bindAccountForm,
+    bindShopForm,
     accountList,
     list
   },
