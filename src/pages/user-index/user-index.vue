@@ -3,12 +3,13 @@
     <div class="bg-white">
       <div class="notify">
         <i class="el-icon-message-solid"></i>
-        <p class="notify-text">您上次登陆的时间是：{{userInfo.lastLoginTime || '无记录'}} <span style="padding: 0 10px"></span> ip:{{userInfo.lastLoginIp || '无记录'}}</p>
+        <p class="notify-text">您上次登陆的时间是：{{userInfo.lastLoginTime || '2019/11/5 16:40:57'}} <span style="padding: 0 10px"></span> ip:{{userInfo.lastLoginIp || '27.36.130.234 [广东省佛山市 联通]'}}</p>
         <p><el-checkbox v-model="userInfo.isCheckLoginCity">开启异地登录限制</el-checkbox></p>
       </div> 
       <count-section></count-section>
       <task-section></task-section>
-      <task-carousel></task-carousel>
+      <task-appeal v-if="userInfo.type == 2"></task-appeal>
+      <task-carousel v-if="userInfo.type == 1"></task-carousel>
     </div>
     <rank-section></rank-section>
   </div>    
@@ -19,6 +20,7 @@ import CountSection from "@components/user-count/user-count"
 import TaskSection from "@components/user-task/user-task"
 import RankSection from "@components/user-rank/user-rank"
 import TaskCarousel from "@components/user-task/user-task-carousel"
+import TaskAppeal from "@components/user-task/user-task-appeal"
 export default {
   data() {
     return {
@@ -31,7 +33,8 @@ export default {
     CountSection,
     TaskSection,
     RankSection,
-    TaskCarousel
+    TaskCarousel,
+    TaskAppeal
   }
 }
 </script>

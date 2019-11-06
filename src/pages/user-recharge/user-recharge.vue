@@ -47,7 +47,7 @@ export default {
     watchActive(activeName, oldActiveName) {
       if(activeName == 2) {
         this.$router.push({
-          path: '/address'
+          path: 'userFinancial?tab=1'
         })
       }else {
         this.$router.push({

@@ -1,9 +1,9 @@
 <template>
   <div class="section task-section">
     <div class="task-table-wrapp">
-      <el-tabs v-model="activeName" type="card" @tab-click="handleClick"  :before-leave="watchActive">
+      <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
         <el-tab-pane v-for="(pane, index) in tabs" :key="index" :label="pane.name" :name="pane.key">
-          <div :class="{'bg-white': activeName == 0}" v-if="activeName == index">
+          <div v-if="activeName == index">
             <components :is="pane.components"></components>
           </div>
         </el-tab-pane>
@@ -13,24 +13,23 @@
 </template>
 
 <script>
-import releaseTask from "@components/task-table/release-task"
-import isRelease from "@components/task-table/is-release-task"
+import taskHall from "@components/task-hall/task-hall"
+import isRelease from "@components/task-hall/part-task-hall"
 import taskTempalte from "@components/task-table/task-template"
 export default {
   data() {
     return {
       activeName: '0',
       tabs: [
-        {name: '发布任务' , key: '0', components: releaseTask},
-        {name: '已发布任务' , key: '1', components: isRelease},
-        {name: '任务模板' , key: '2', components: taskTempalte},
-        {name: '订购空包快递' , key: '3'}
+        {name: '任务大厅' , key: '0', components: taskHall},
+        {name: '已参与任务' , key: '1', components: isRelease},
+        {name: '订购空包快递' , key: '2'}
       ]
     }
   },
 
   components: {
-    releaseTask,
+    taskHall,
     isRelease,
     taskTempalte
   },
@@ -38,14 +37,19 @@ export default {
   watch: {
     activeName(n, o) {
       if(n !== o && n !== 0) {
-        this.$router.push({
-          path: `/taskTable?tab=${n}`
-        })
+        if(n !== '2') {
+          this.$router.push({
+            path: `/taskHall?tab=${n}`
+          })
+        }else {
+          this.$router.push({
+            path: `/express?tab=0`
+          })
+        }
       }
     },
     /**监听手动修改url参数 */
     '$route' (to, from) {
-      console.log(to,from)
       this.activeName = to.query.tab 
     }
   },
@@ -55,19 +59,7 @@ export default {
   },
 
   methods: {
-    handleClick() {},
-
-    watchActive(activeName, oldActiveName) {
-      if(activeName == 3) {
-        this.$router.push({
-          path: '/express?tab=0'
-        })
-      }else {
-        this.$router.push({
-          path: `taskTable?tab=${activeName}`
-        })
-      }
-    }
+    handleClick() {}
   }
 }
 </script>
@@ -112,7 +104,7 @@ export default {
     &.is-active {
       background url('http://demo2.hsk.cc/style/images/task_tab_current_r.gif')
       border-bottom-color #FF8902
-      color white !important
+      color white
       &:after {
         content none
       }
@@ -153,5 +145,4 @@ export default {
     top: 2px;
   }
 }
-
 </style>

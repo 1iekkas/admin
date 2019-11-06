@@ -38,7 +38,7 @@ const global = {
     let res = await api.post(`${app.baseUrl}/brush/app/sendSms`, {
       sendType: sendType,
       mobile: app.form.telphone
-    }, app, {headers: {'token': token}})
+    }, app)
     return res
   },
 
@@ -54,6 +54,14 @@ const global = {
   },
 
   /**register */
+
+  /**上传图片 */
+  async uploadImage(app, file) {
+    let data = new FormData()
+    data.append('img', file)
+    let res = await api.post(`${app.baseUrl}/brush/app/uploadImg`, data, this, {headers: {'token': VueCookies.get('token'), 'Content-Type': 'multipart/form-data'}})
+    return res
+  },
   
 }
 

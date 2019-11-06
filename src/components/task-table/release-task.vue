@@ -83,10 +83,21 @@
       <el-form-item label="商品主图：">
         <el-row :gutter="23">
           <el-col :span="4">
-            <img class="thumb" src="http://img.alicdn.com/imgextra/i1/2528566607/O1CN01Yd2lTL1yg3JCQozB6_!!2528566607.jpg_430x430q90.jpg" alt="">
+            <img class="thumb" :src="thumb" alt="">
           </el-col>
-          <el-col :span="17" class="form-tips-blue">
-            <div>输入链接地址可自动获取，如果获取失败或手机端和pc端主图不一致可以 <span class="text-red">点我上传</span></div>
+          <el-col :span="13" class="form-tips-blue">
+            <div>输入链接地址可自动获取，如果获取失败或手机端和pc端主图不一致可以
+            </div>
+          </el-col>
+          <el-col :span="4">
+            <el-upload
+              class="upload-demo"
+              action="string"
+              :http-request="upload"
+              :show-file-list="false"
+            >
+              <el-button size="small" type="primary">点击上传</el-button>
+            </el-upload>
           </el-col>
         </el-row>
       </el-form-item>
@@ -409,13 +420,8 @@
                 <el-upload
                   class="upload-demo"
                   action="https://jsonplaceholder.typicode.com/posts/"
-                  :on-preview="handlePreview"
-                  :on-remove="handleRemove"
-                  :before-remove="beforeRemove"
                   multiple
                   :limit="3"
-                  :on-exceed="handleExceed"
-                  :file-list="fileList"
                   style="margin-left: 15px">
                   <el-button size="small" type="primary">点击上传</el-button>
                 </el-upload>
@@ -824,9 +830,9 @@ export default {
         radio1: 1,
         taskTypes: 1,
         value1: '',
-        
       },
-      rules: {}
+      rules: {},
+      thumb: '',
     }
   },
 
@@ -837,6 +843,7 @@ export default {
   },
 
   methods: {
+    /**设置 */
     async setTaskType() {
       let res = await taskConfig.getTaskType(this)
       if(!res.data.code) {
@@ -845,14 +852,22 @@ export default {
       }
     },
 
+    /** */
     async setTaskConfig(type) {
       let res = await taskConfig.getTaskConfig(this, type)
       console.log(res)
-      /* if(!res.data.code) {
-        this.form['taskType'] = res.data.shopSiteList
-        this.form['taskTypeValue'] = res.data.shopSiteList[0].id
-      } */
-    }
+    },
+
+    /** */
+    async upload(param) {
+      let res = await this.Global.uploadImage(this, param.file)
+      console.log(res)
+      if(!res.data.code) {
+        this.thumb = res.data.imgUrl
+      }
+    },
+
+
   }
 
 }

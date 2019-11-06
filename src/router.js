@@ -39,6 +39,8 @@ const taskTable = () => import("@/pages/task-table/task-table")
 const bindAccount = () => import("@/pages/bind-account/bind-account")
 const bindShop = () => import("@/pages/bind-shop/bind-shop")
 const blackList = () => import("@/pages/black-list/black-list")
+const taskHall = () => import("@/pages/task-hall/task-hall")
+const userAuth = () => import("@/pages/user-auth/user-auth")
 /**
  * 导出路由
  */
@@ -279,11 +281,20 @@ export default new Router({
                 requireAuth: true
               },
             },
-            //绑定买号
+            //黑名单列表
             {
               path: '/blackList',
               name: 'blackList',
               component: blackList,
+              meta: {
+                requireAuth: true
+              },
+            },
+            //用户认证
+            {
+              path: '/userAuth',
+              name: 'userAuth',
+              component: userAuth,
               meta: {
                 requireAuth: true
               },
@@ -293,6 +304,15 @@ export default new Router({
               path: '/bindShop',
               name: 'bindShop',
               component: bindShop,
+              meta: {
+                requireAuth: true
+              },
+            },   
+            //任务大厅
+            {
+              path: '/taskHall',
+              name: 'taskHall',
+              component: taskHall,
               meta: {
                 requireAuth: true
               },

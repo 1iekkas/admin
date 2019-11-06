@@ -29,7 +29,7 @@
           <template slot="title">
             <span><i :class="item.entity.icon"></i>{{item.entity.alias}}</span>
           </template>
-          <el-menu-item v-for="(sub, idx) in item.child" :key="idx" :index="sub.entity.link">{{sub.entity.alias}}</el-menu-item>
+          <el-menu-item v-for="(sub, idx) in item.child" :style="{'color': sub.entity.color}" :key="idx" :index="sub.entity.link">{{sub.entity.alias}}</el-menu-item>
         </el-submenu> 
       </el-menu>
     </div>
@@ -47,7 +47,7 @@ export default {
 
   created() {  
     nav.forEach(element => {
-      element.child = element.child.filter(item => item['entity'].group == this.userInfo['groupId'])
+      element.child = element.child.filter(item => item['entity'].group == this.userInfo['type'] || item['entity'].group == 0)
     });
   },
   

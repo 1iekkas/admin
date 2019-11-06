@@ -14,8 +14,12 @@ import Foot from "@components/footer/footer"
 export default {
   data() {
     return {
-      userType: this.Global.getCookieUserInfo('memberInfo')['groupId']
+      userType: this.Global.getCookieUserInfo('memberInfo')['type']
     }
+  },
+
+  created() {
+    console.log(this.userType)
   },
 
   components: {

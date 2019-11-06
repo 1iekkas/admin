@@ -3,6 +3,8 @@ body {
   --text-orange: #ff7f00;
   --text-red: #f00;
   --text-light-black: #555;
+  --text-green: green;
+  --text-blue: #0078e4
   margin: 0;
   padding: 0;
   ul, li, img, p {
@@ -35,12 +37,20 @@ body {
   color var(--text-color) !important
 }
 
+.text-green {
+  color: var(--text-green) !important 
+}
+
 .text-orange {
   color: var(--text-orange) !important
 }
 
 .text-red {
   color: var(--text-red) !important
+}
+
+.text-blue {
+  color: var(--text-blue) !important
 }
 
 .text-light-black {
@@ -274,16 +284,20 @@ body {
 .base-blue {
   .el-tabs__header {
     background-color white
-    padding 0 20px
+    padding 0 20px !important
   }
 
   .el-tabs__active-bar {
-    background-color #1989fa
+    background-color #1989fa !important
   }
 
   .el-tabs__item {
     &.is-active, &:hover {
-      color #1989fa
+      color #1989fa !important
     }
   }
+}
+
+.flex-1 {
+  flex: 1
 }

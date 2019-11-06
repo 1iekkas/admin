@@ -1,6 +1,6 @@
 <template>
   <div class="form-section">
-    <el-tabs v-model="activeName" @tab-click="handleClick" lazy="true">
+    <el-tabs v-model="activeName" @tab-click="handleClick" lazy="true" :before-leave="watchActive">
       <el-tab-pane label="推广赚钱" name="0">
         <div class="bg-white" v-if="activeName == 0">
           <user-spread-form name="我的推广"></user-spread-form>
@@ -39,13 +39,13 @@ export default {
   },
 
   watch: {
-    activeName(n, o) {
-      /* if(n !== o && n !== 0) {
+    /* activeName(n, o) {
+      if(n !== o && n !== 0) {
         this.$router.push({
-          path: `/userAppeal?tab=${n}`
+          path: `/userSpread?tab=${n}`
         })
-      } */
-    },
+      }
+    }, */
     /**监听手动修改url参数 */
     '$route' (to, from) {
       this.activeName = to.query.tab 
@@ -55,6 +55,17 @@ export default {
   methods: {
     handleClick(e) {
       
+    },
+    watchActive(activeName, oldActiveName) {
+      if(activeName == 2) {
+        this.$router.push({
+          path: '/userFinancial?tab=2'
+        })
+      }else {
+        this.$router.push({
+          path: `/userSpread?tab=${activeName}`
+        })
+      }
     }
   }
 }

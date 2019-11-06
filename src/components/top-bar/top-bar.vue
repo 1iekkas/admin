@@ -4,7 +4,7 @@
       <div class="info">
         您好, <router-link to="/">{{userInfo.userName}}</router-link> 欢迎您回来！ 
         <router-link to="/userMail?tab=0">短消息 <span>({{userInfo.msgCount}})</span></router-link>
-        <router-link to="">会员中心</router-link>
+        <router-link to="/">会员中心</router-link>
         <router-link to="/login">退出</router-link>
       </div>
       <div class="nav nav-left">
