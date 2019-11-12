@@ -3,9 +3,9 @@ import Router from "vue-router";
 Vue.use(Router);
 
 /** */
-const originalPush = Router.prototype.push
+const routerPush = Router.prototype.push
 Router.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err)
+  return routerPush.call(this, location).catch(error=> error)
 }
 
 /**

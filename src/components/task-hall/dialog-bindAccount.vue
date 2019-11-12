@@ -30,8 +30,8 @@
           width="250"
           show-overflow-tooltip	
         >
-          <template>
-            创翔科技 <font class="text-red">[花呗]</font><font class="text-green"> 淘气值2212312</font>
+          <template slot-scope="scope">
+            {{scope.row.account}} <font class="text-red" v-if="scope.row.isHuabei">[花呗]</font><font class="text-green"> 淘气值{{scope.row.taoqi}}</font>
           </template>
         </el-table-column>
 
@@ -39,10 +39,10 @@
           prop="name"
           label=""
         >
-          <template>
+          <template slot-scope="scope">
             <div class="flex">
-              <font class="text-red">男</font> <font class="text-green">33-40岁</font>
-              <img src="http://demo2.hsk.cc/style/images/ShiMing.gif" alt="">
+              <font class="text-red">{{scope.row.sex ? '男': '女'}}</font> <font class="text-green">{{scope.row.age}}</font>
+              <img v-if="scope.row.isRealname" src="http://demo2.hsk.cc/style/images/ShiMing.gif" alt="">
             </div>
              
              
@@ -53,9 +53,9 @@
           prop="name"
           label=""
         >
-          <template>
+          <template slot-scope="scope">
             <div class="flex">
-              信誉值：<font class="text-orange text-bold">150</font> <img src="http://demo2.hsk.cc/style/images/score_1.gif" alt="">
+              信誉值：<font class="text-orange text-bold">{{scope.row.xinyu ? scope.row.xinyu : 0}}</font> <img src="http://demo2.hsk.cc/style/images/score_1.gif" alt="">
             </div>
           </template>
         </el-table-column>
@@ -65,8 +65,8 @@
           label=""
           width="150"
         >
-          <template>
-            今日已接手：<font class="text-orange text-bold">0</font> 条
+          <template slot-scope="scope">
+            今日已接手：<font class="text-orange text-bold">{{scope.row.todayNum ? scope.row.todayNum : 0}}</font> 条
           </template>
         </el-table-column>
 
@@ -75,8 +75,8 @@
           label=""
           width="80"
         >
-          <template>
-            月：<font class="text-orange text-bold">0</font>条
+          <template slot-scope="scope">
+            月：<font class="text-orange text-bold">{{scope.row.monthNum ? scope.row.monthNum : 0}}</font>条
           </template>
         </el-table-column>
 
@@ -85,8 +85,8 @@
           label=""
           width="80"
         >
-          <template>
-            日：<font class="text-orange text-bold">0</font>条
+          <template slot-scope="scope">
+            周：<font class="text-orange text-bold">{{scope.row.weekNum ? scope.row.weekNum : 0}}</font>条
           </template>
         </el-table-column>
   
@@ -134,11 +134,24 @@ export default {
     }
   },
 
-  created() {
-    
+  async created() {
+    await this.getData()
   },
 
   methods: {
+    async getData() {
+      let res = await this.api.post(`${this.baseUrl}/brush/app/taskBindAccountList`
+      , {}, this, { headers: {'token': this.$cookies.get('token')}})
+      if(!res.data.code) {
+        console.log(res.data.taskBindAccountList)
+        this.tableData = res.data.taskBindAccountList
+      }else {
+        this.$alert(res.data.msg, '获取买号列表失败', {
+          dangerouslyUseHTMLString: true
+        });
+      }
+    },
+
     onClose() {
       this.$emit('close')
     },
@@ -151,7 +164,7 @@ export default {
       console.log(val)
       this.currentRow = val;
       this.radio = this.tableData.findIndex(item => {
-        return item.id == val.id
+        return item.accountId == val.accountId
       })
       console.log(this.radio)
     }

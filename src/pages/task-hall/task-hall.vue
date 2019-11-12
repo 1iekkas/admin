@@ -59,7 +59,9 @@ export default {
   },
 
   methods: {
-    handleClick() {}
+    handleClick() {},
+
+    
   }
 }
 </script>
